@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 interface NavLinkProps {
   text: string
   link: string
@@ -10,18 +10,13 @@ interface NavLinkProps {
 const NavLink: React.FC<NavLinkProps> = ({
   text,
   link,
-  active = false,
+  active,
   isLast = false,
 }) => {
-  const NAVBAR_HEIGHT = 50 // Adjust this based on your navbar height
+  const NAVBAR_HEIGHT = 50
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault()
-
-    if (link === "/") {
-      window.scrollTo({ top: 0, behavior: "smooth" })
-      return
-    }
 
     const sectionId = link.replace("/#", "")
     const section = document.getElementById(sectionId)
@@ -51,17 +46,30 @@ const NavLink: React.FC<NavLinkProps> = ({
 
 const FixedNavbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false)
-  // const [isActive, setIsActive] = useState("home")
+  const [activeLink, setActiveLink] = useState("")
 
-  // actually should consider use case when scrolling to section
-  // create new state for active where options are text
-  // active by default is home
-  // on click, change active to link.text
-  // if active is equal to link.text then keep that active styling
-  // check if top works, if it does, remove all uses of active
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveLink(entry.target.id)
+          }
+        })
+      },
+      { threshold: 0.5 }
+    )
+
+    const sections = document.querySelectorAll("section")
+    sections.forEach((section) => observer.observe(section))
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [])
 
   const navLinks = [
-    { text: "home", link: "/", active: true },
+    { text: "home", link: "/#home", active: true },
     { text: "about", link: "/#about" },
     { text: "visit", link: "/#visit", isLast: true },
     // { text: "GALLERY" },
@@ -79,7 +87,7 @@ const FixedNavbar: React.FC = () => {
               key={index}
               text={link.text}
               link={link.link}
-              active={link.active}
+              active={link.link.slice(2) === activeLink}
               isLast={link.isLast}
             />
           ))}
@@ -105,7 +113,9 @@ const FixedNavbar: React.FC = () => {
                 key={index}
                 href={link.link}
                 className={`text-white uppercase ${
-                  link.active ? "border-b border-white" : ""
+                  link.link.slice(2) === activeLink
+                    ? "border-b border-white"
+                    : ""
                 }`}
               >
                 {link.text}
