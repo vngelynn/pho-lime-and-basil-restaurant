@@ -2,7 +2,7 @@
 import React from "react"
 import { MapPin, Clock } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/card"
-import logo from "@/assets/images/logo.jpg"
+import logo from "@/assets/images/landingLogo.jpg"
 import Image from "next/image"
 import grassBackground from "@/assets/images/grass_background.png"
 import limeBasilBg from "@/assets/images/lime-basil-bg.png"
