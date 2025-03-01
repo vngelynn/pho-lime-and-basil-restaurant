@@ -30,10 +30,9 @@ const NavLink: React.FC<NavLinkProps> = ({
 
 const FixedNavbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const [isActive, setIsActive] = useState('home')
+  // const [isActive, setIsActive] = useState("home")
 
-
- // actually should consider use case when scrolling to section 
+  // actually should consider use case when scrolling to section
   // create new state for active where options are text
   // active by default is home
   // on click, change active to link.text
@@ -78,7 +77,7 @@ const FixedNavbar: React.FC = () => {
 
       {/* Mobile Navigation Menu */}
       {isOpen && (
-        <div className='bg-red-900 px-4 py-4 md:hidden'>
+        <div className='bg-black px-4 py-4 md:hidden'>
           <div className='flex flex-col space-y-4'>
             {navLinks.map((link, index) => (
               <a

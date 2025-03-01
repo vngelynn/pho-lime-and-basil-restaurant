@@ -63,9 +63,9 @@ export default function Home() {
                       Opening March 2025
                     </h3>
                     <p className='text-yellow-700'>
-                      We're excited to become Huntington Beach's newest
-                      Vietnamese restaurant! Stay tuned for our grand opening
-                      announcement.
+                      We&lsquo;re excited to become Huntington Beach&lsquo;s
+                      newest Vietnamese restaurant! Stay tuned for our grand
+                      opening announcement.
                     </p>
                   </div>
                 </div>
@@ -146,7 +146,6 @@ export default function Home() {
                     src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3319.5441649655473!2d-118.0319697!3d33.7271675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dd262e11111111%3A0x11111111111111!2s6100%20Warner%20Ave%20%23105%2C%20Huntington%20Beach%2C%20CA%2092647!5e0!3m2!1sen!2sus!4v1665432123456!5m2!1sen!2sus'
                     className='w-full h-full rounded-lg'
                     style={{ border: 0 }}
-                    allowFullScreen=''
                     loading='lazy'
                     referrerPolicy='no-referrer-when-downgrade'
                     title='Restaurant Location Map'
