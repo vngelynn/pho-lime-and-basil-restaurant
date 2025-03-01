@@ -1,6 +1,6 @@
 "use client"
 import React from "react"
-import { MapPin, Clock } from "lucide-react"
+import { MapPin, Clock, Phone } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/card"
 import logo from "@/assets/images/landingLogo.jpg"
 import Image from "next/image"
@@ -133,7 +133,12 @@ export default function Home() {
           <div className='container mx-auto px-4 pb-16'>
             <div className='max-w-3xl mx-auto'>
               <Card className='bg-white shadow-lg'>
-                <CardHeader></CardHeader>
+                <CardHeader>
+                  <CardTitle className='flex items-center gap-2 text-black'>
+                    <Phone className='h-5 w-5 text-green-600' />
+                    Phone Number Will Be Uploaded Soon!
+                  </CardTitle>
+                </CardHeader>
                 <CardContent>
                   <div className='aspect-video w-full'>
                     <iframe
