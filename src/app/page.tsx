@@ -126,7 +126,8 @@ export default function Home() {
                   <p className='text-gray-600'>
                     Open Daily
                     <br />
-                    Monday - Sunday: 10:00 AM - 10:00 PM
+                    Monday - Sunday:
+                    <span className='block md:inline'>10:00 AM - 10:00 PM</span>
                   </p>
                 </CardContent>
               </Card>
