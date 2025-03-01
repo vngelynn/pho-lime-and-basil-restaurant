@@ -2,7 +2,7 @@
 import React from "react"
 import { MapPin, Clock, Phone } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/card"
-import logo from "@/assets/images/landingLogo.jpg"
+import logo from "./../../public/images/icon.png"
 import Image from "next/image"
 import grassBackground from "@/assets/images/grass_background.png"
 import limeBasilBg from "@/assets/images/lime-basil-bg.png"
@@ -15,11 +15,15 @@ export default function Home() {
       <FixedNavbar />
       {/* Hero Section */}
       <section id='home'>
-        <div
-          className='bg-center pb-16 pt-20'
-          style={{ backgroundImage: `url(${grassBackground.src})` }}
-        >
-          <div className='container mx-auto px-4 py-16 flex flex-col items-center justify-center '>
+        <div className='relative pb-16 pt-20 bg-center'>
+          <div
+            className='absolute inset-0 bg-cover bg-center'
+            style={{
+              backgroundImage: `url(${grassBackground.src})`,
+              opacity: 0.8,
+            }}
+          ></div>
+          <div className='relative z-10 container mx-auto px-4 py-16 flex flex-col items-center justify-center '>
             <Image
               src={logo}
               alt='logo'
