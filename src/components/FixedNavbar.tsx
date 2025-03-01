@@ -118,6 +118,14 @@ const FixedNavbar: React.FC = () => {
                     ? "border-b border-white"
                     : ""
                 }`}
+                onClick={(e) => {
+                  e.preventDefault() // Prevent URL change
+                  setActiveLink(link.link.slice(2)) // Update active section
+                  document.getElementById(link.link.slice(2))?.scrollIntoView({
+                    behavior: "smooth",
+                  }) // Scroll to section smoothly
+                  setIsOpen(false) // Close menu
+                }}
               >
                 {link.text}
               </a>
