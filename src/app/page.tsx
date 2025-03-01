@@ -88,8 +88,8 @@ export default function Home() {
           className='flex flex-col mx-auto px-4 gap-8 pt-20'
           style={{
             backgroundImage: `url(${limeBasilBg.src})`,
-            backgroundSize: "35%", // Adjust to make it smaller
-            backgroundRepeat: "repeat", // Ensures the pattern repeats
+            backgroundSize: "35%",
+            backgroundRepeat: "repeat",
           }}
         >
           <BlackLabel text='Visit Us' size='text-xl' />
@@ -126,7 +126,7 @@ export default function Home() {
                   <p className='text-gray-600'>
                     Open Daily
                     <br />
-                    Monday - Sunday: 11:00 AM - 10:00 PM
+                    Monday - Sunday: 10:00 AM - 10:00 PM
                   </p>
                 </CardContent>
               </Card>
