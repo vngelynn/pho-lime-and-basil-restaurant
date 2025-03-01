@@ -1,5 +1,6 @@
 "use client"
 import React, { useState, useEffect } from "react"
+import { Menu } from "lucide-react"
 interface NavLinkProps {
   text: string
   link: string
@@ -99,7 +100,7 @@ const FixedNavbar: React.FC = () => {
             onClick={() => setIsOpen(!isOpen)}
             className='text-white text-lg'
           >
-            MENU
+            <Menu />
           </button>
         </div>
       </nav>
