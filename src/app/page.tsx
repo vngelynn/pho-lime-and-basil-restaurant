@@ -15,8 +15,8 @@ export default function Home() {
       <FixedNavbar />
       {/* Hero Section */}
       <div
-        className='bg-cover bg-center py-16'
-        style={{ backgroundImage: `url(${grassBackground.src})` }} // Accessing the .src property
+        className='bg-center pb-16 pt-20'
+        style={{ backgroundImage: `url(${grassBackground.src})` }}
       >
         <div className='container mx-auto px-4 py-16 flex flex-col items-center justify-center '>
           <Image

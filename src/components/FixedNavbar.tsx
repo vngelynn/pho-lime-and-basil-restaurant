@@ -1,5 +1,7 @@
+"use client"
 import React, { useState } from "react"
-
+import { usePathname } from "next/navigation"
+import { useEffect } from "react"
 interface NavLinkProps {
   text: string
   link: string
@@ -13,9 +15,30 @@ const NavLink: React.FC<NavLinkProps> = ({
   active = false,
   isLast = false,
 }) => {
+  const NAVBAR_HEIGHT = 50 // Adjust this based on your navbar height
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault()
+
+    if (link === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" })
+      return
+    }
+
+    const sectionId = link.replace("/#", "")
+    const section = document.getElementById(sectionId)
+
+    if (section) {
+      const offsetTop =
+        section.getBoundingClientRect().top + window.scrollY - NAVBAR_HEIGHT
+      window.scrollTo({ top: offsetTop, behavior: "smooth" })
+    }
+  }
+
   return (
     <a
       href={link}
+      onClick={handleClick}
       className={`
         text-white uppercase tracking-wider hover:border-b-2 border-white transition-colors duration-200
         ${active ? "text-gray-200 font-semibold" : ""}
@@ -40,9 +63,9 @@ const FixedNavbar: React.FC = () => {
   // check if top works, if it does, remove all uses of active
 
   const navLinks = [
-    { text: "home", link: "#", active: true },
-    { text: "about", link: "#about" },
-    { text: "visit", link: "#visit", isLast: true },
+    { text: "home", link: "/", active: true },
+    { text: "about", link: "/#about" },
+    { text: "visit", link: "/#visit", isLast: true },
     // { text: "GALLERY" },
     // { text: "JOIN OUR TEAM" },
     // { text: "CONTACT", isLast: true },
